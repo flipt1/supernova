@@ -1,0 +1,16 @@
+version: "3.10"
+
+services:
+  flask_app:
+    container_name: flask_app
+    image: flipt1/flask_live_app:1.0.0
+    build: .
+    ports:
+      - "4000:4000"
+    environment:
+      - 'MONGO_URI=mongodb+srv://felipe_vasco:pxtUK4mwGSyBuz7L@cluster0.xfhbjhm.mongodb.net/petri-dish'
+      - FLASK_APP=app.py
+    # Add any other environment variables your Flask app requires here
+    volumes:  
+      - ./crudflask:/templates
+
